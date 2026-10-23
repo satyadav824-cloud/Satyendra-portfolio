@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Satyendra Yadav - BTech AI/ML Student, Python Developer and Machine Learning enthusiast.">
+<title>Satyendra Yadav | AI/ML Portfolio</title>
+
+<style>
+:root{
+  --bg:#050814;--card:rgba(13,20,36,.78);--text:#f7f8ff;--muted:#aab4ca;
+  --line:rgba(120,140,190,.22);--primary:#635bff;--cyan:#36d8ff;
+}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+html{scroll-padding-top:80px}
+body{
+  font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--text);background:var(--bg);
+  line-height:1.6;overflow-x:hidden
+}
+body:before{
+  content:"";position:fixed;inset:-20%;z-index:-4;
+  background:
+    radial-gradient(circle at 75% 15%,rgba(99,91,255,.18),transparent 24%),
+    radial-gradient(circle at 15% 70%,rgba(54,216,255,.10),transparent 22%),
+    radial-gradient(circle at 55% 55%,rgba(140,82,255,.08),transparent 25%);
+  animation:bgMove 12s ease-in-out infinite alternate
+}
+@keyframes bgMove{to{transform:translate3d(3%,-2%,0) scale(1.04)}}
+
+#particles{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.particle{
+  position:absolute;width:3px;height:3px;border-radius:50%;background:#7d8cff;
+  opacity:.55;animation:float linear infinite
+}
+@keyframes float{
+  0%{transform:translate3d(0,110vh,0);opacity:0}
+  15%{opacity:.6}85%{opacity:.6}
+  100%{transform:translate3d(80px,-10vh,0);opacity:0}
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,92%);margin:auto}
+nav{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  background:rgba(5,8,20,.72);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.07)
+}
+.navbar{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:27px;font-weight:900}.logo span{color:var(--primary)}
+.nav-links{display:flex;gap:25px;list-style:none}
+.nav-links a{color:#cbd3e5;font-size:14px;transition:.25s;position:relative}
+.nav-links a:after{
+  content:"";position:absolute;left:0;bottom:-7px;width:0;height:2px;
+  background:linear-gradient(90deg,var(--primary),var(--cyan));transition:.3s
+}
+.nav-links a:hover{color:#fff}.nav-links a:hover:after{width:100%}
+.nav-btn,.btn.primary{
+  background:linear-gradient(135deg,var(--primary),#3b9dff);box-shadow:0 8px 28px rgba(99,91,255,.24)
+}
+.nav-btn{padding:10px 16px;border-radius:9px;font-weight:800;font-size:13px}
+.menu{display:none;font-size:27px;cursor:pointer}
+
+section{padding:105px 0}
+.hero{min-height:100vh;padding-top:120px;display:flex;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.badge{
+  display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);
+  background:rgba(13,20,36,.55);padding:8px 13px;border-radius:999px;color:#d3daea;
+  font-size:13px;margin-bottom:20px;animation:pulseBorder 2.4s ease-in-out infinite
+}
+@keyframes pulseBorder{50%{box-shadow:0 0 24px rgba(99,91,255,.18)}}
+.dot{width:8px;height:8px;border-radius:50%;background:#35e68b;box-shadow:0 0 12px #35e68b}
+h1{font-size:clamp(44px,6vw,76px);line-height:1.03;letter-spacing:-3px}
+.gradient{
+  background:linear-gradient(90deg,#fff,#7f77ff,#35cfff,#fff);
+  background-size:250% auto;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:shine 4s linear infinite
+}
+@keyframes shine{to{background-position:250% center}}
+.hero h2{font-size:26px;margin:18px 0 15px;color:#dce3f1}
+.hero p{color:var(--muted);max-width:650px;font-size:17px}
+.typed{color:#8c9aff}
+.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:9px;
+  border:1px solid var(--line);font-weight:700;font-size:14px;transition:.3s
+}
+.btn:hover{transform:translateY(-4px);box-shadow:0 15px 35px rgba(0,0,0,.28)}
+.socials{display:flex;gap:12px;margin-top:20px;color:#aeb8cc;font-size:14px}
+.socials a:hover{color:#fff}
+
+.photo-wrap{display:flex;justify-content:center;position:relative}
+.photo-wrap:before{
+  content:"";position:absolute;width:380px;height:380px;border-radius:50%;
+  background:linear-gradient(135deg,var(--primary),var(--cyan));filter:blur(60px);
+  opacity:.22;animation:orb 5s ease-in-out infinite alternate
+}
+@keyframes orb{to{transform:scale(1.16) rotate(15deg);opacity:.32}}
+.photo-ring{
+  width:min(390px,82vw);aspect-ratio:1;border-radius:50%;padding:7px;
+  background:linear-gradient(135deg,var(--primary),var(--cyan),#8c52ff,var(--primary));
+  background-size:300% 300%;box-shadow:0 0 55px rgba(99,91,255,.35);
+  animation:ring 6s ease infinite,photoFloat 5s ease-in-out infinite;position:relative
+}
+@keyframes ring{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+@keyframes photoFloat{50%{transform:translateY(-10px)}}
+.photo-ring img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:5px solid #09101d;display:block}
+
+.section-head{text-align:center;margin-bottom:50px}
+.section-head .eyebrow{color:#7770ff;text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:800}
+.section-head h2{font-size:40px;margin-top:5px}
+.section-head p{color:var(--muted);max-width:650px;margin:10px auto}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.card{
+  background:linear-gradient(145deg,rgba(16,26,46,.78),rgba(8,14,28,.78));
+  border:1px solid var(--line);border-radius:17px;padding:28px;
+  box-shadow:0 15px 45px rgba(0,0,0,.15);transition:.35s;
+  transform-style:preserve-3d
+}
+.card:hover{border-color:rgba(115,128,255,.5);box-shadow:0 20px 55px rgba(0,0,0,.28);transform:translateY(-5px)}
+.card p{color:var(--muted);margin-bottom:14px}
+.info-list{display:grid;gap:13px}
+.info-row{display:flex;justify-content:space-between;gap:15px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.07)}
+.info-row:last-child{border-bottom:0}.info-row span:first-child{color:#7f8ba3}.info-row span:last-child{text-align:right}
+
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.skill{
+  padding:22px;text-align:center;border:1px solid var(--line);border-radius:14px;
+  background:var(--card);transition:.35s;position:relative;overflow:hidden
+}
+.skill:before{
+  content:"";position:absolute;inset:-80%;background:conic-gradient(transparent,var(--primary),transparent 30%);
+  animation:spin 5s linear infinite;opacity:.12
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.skill>*{position:relative}.skill:hover{transform:translateY(-7px) scale(1.02);border-color:#6878c6}
+.skill-icon{font-size:32px;margin-bottom:7px}.skill h3{font-size:15px}.skill p{color:#8e98ac;font-size:12px;margin-top:4px}
+
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.project{overflow:hidden}
+.project-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
+.project-number{font-size:12px;color:#7770ff;font-weight:800;letter-spacing:1px}
+.project h3{font-size:24px;margin-bottom:8px}.project p{color:var(--muted);font-size:14px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0}
+.tag{font-size:11px;padding:5px 9px;border-radius:999px;background:#172137;color:#b8c2d6;border:1px solid #253250}
+.project-link{color:#8d88ff;font-size:13px;font-weight:800}
+
+.timeline{max-width:850px;margin:auto;display:grid;gap:20px}
+.timeline-card{position:relative;padding-left:30px}
+.timeline-card:before{
+  content:"";position:absolute;left:0;top:8px;width:9px;height:9px;border-radius:50%;
+  background:#6b63ff;box-shadow:0 0 15px #6b63ff;animation:dotPulse 1.8s infinite
+}
+@keyframes dotPulse{50%{box-shadow:0 0 26px #6b63ff}}
+.timeline-card h3{font-size:21px}.timeline-card .date{color:#7f8aff;font-size:13px;margin:3px 0 10px}.timeline-card p{color:var(--muted);font-size:14px}
+
+.contact{max-width:800px;margin:auto;text-align:center}
+.contact .card{margin-top:25px}.contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:20px}
+footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:#758096;font-size:13px}
+footer span{color:#7f77ff}
+
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .75s ease,transform .75s ease}
+.reveal.show{opacity:1;transform:none}
+.delay1{transition-delay:.12s}.delay2{transition-delay:.24s}.delay3{transition-delay:.36s}
+
+@media(max-width:900px){
+  .nav-links{display:none;position:absolute;top:72px;left:0;width:100%;padding:20px;background:#080d19;
+    border-bottom:1px solid var(--line);flex-direction:column;text-align:center}
+  .nav-links.active{display:flex}.menu{display:block}.nav-btn{display:none}
+  .hero-grid,.about-grid{grid-template-columns:1fr}.hero{text-align:center}.hero p{margin:auto}
+  .buttons,.socials{justify-content:center}.skills{grid-template-columns:repeat(2,1fr)}.projects{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  section{padding:85px 0}.skills{grid-template-columns:1fr}.section-head h2{font-size:31px}
+  h1{letter-spacing:-2px}.photo-ring{width:290px}.info-row{flex-direction:column;gap:2px}
+  .info-row span:last-child{text-align:left}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+
+<body>
+<div id="particles"></div>
+
+<nav>
+<div class="container navbar">
+  <a href="#home" class="logo">S<span>Y.</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li><li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li><li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-btn" href="resume.pdf" download>↓ Resume</a>
+  <div class="menu" onclick="toggleMenu()">☰</div>
+</div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+<div class="container hero-grid">
+  <div class="reveal">
+    <div class="badge"><span class="dot"></span> Open to internship opportunities</div>
+    <h1>Satyendra <span class="gradient">Yadav</span></h1>
+    <h2>BTech AI/ML Student · <span class="typed" id="typed"></span></h2>
+    <p>
+      I build practical projects using Python, Machine Learning and Data Analysis.
+      Currently strengthening my AI/ML skills and turning real datasets and problems into useful applications.
+    </p>
+    <div class="buttons">
+      <a class="btn primary" href="#projects">View Projects →</a>
+      <a class="btn" href="resume.pdf" download>↓ Download Resume</a>
+    </div>
+    <div class="socials">
+      <a href="https://github.com/satyadav824-cloud" target="_blank">GitHub ↗</a><span>•</span>
+      <a href="https://www.linkedin.com/in/satyendra-yadav-50b604273/" target="_blank">LinkedIn ↗</a><span>•</span>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <div class="photo-wrap reveal delay2">
+    <div class="photo-ring"><img src="assests/profile.png" alt="Satyendra Yadav"></div>
+  </div>
+</div>
+</section>
+
+<section id="about"><div class="container">
+  <div class="section-head reveal"><div class="eyebrow">About</div><h2>About Me</h2>
+    <p>A student focused on building skills through hands-on projects.</p></div>
+  <div class="about-grid">
+    <div class="card reveal">
+      <p>I am a BTech AI/ML student interested in Machine Learning, Python development and Data Analysis.</p>
+      <p>I enjoy learning by building projects, working with datasets and improving my programming fundamentals through practical applications.</p>
+      <p>My current goal is to prepare for AI/ML, Python and data-related internship opportunities.</p>
+    </div>
+    <div class="card reveal delay1"><div class="info-list">
+      <div class="info-row"><span>Name</span><span>Satyendra Yadav</span></div>
+      <div class="info-row"><span>Degree</span><span>BTech AI/ML</span></div>
+      <div class="info-row"></div>
+      <div class="info-row"><span>Primary Language</span><span>Python</span></div>
+      <div class="info-row"><span>Interests</span><span>ML · Data · AI</span></div>
+    </div></div>
+  </div>
+</div></section>
+
+<section id="skills"><div class="container">
+  <div class="section-head reveal"><div class="eyebrow">Technical Stack</div><h2>My Skills</h2></div>
+  <div class="skills">
+    <div class="skill reveal"><div class="skill-icon">🐍</div><h3>Python</h3><p>Programming & applications</p></div>
+    <div class="skill reveal delay1"><div class="skill-icon">🤖</div><h3>Machine Learning</h3><p>ML fundamentals & models</p></div>
+    <div class="skill reveal delay2"><div class="skill-icon">📊</div><h3>Data Analysis</h3><p>Pandas & NumPy</p></div>
+    <div class="skill reveal delay3"><div class="skill-icon">📈</div><h3>Matplotlib</h3><p>Data visualization</p></div>
+    <div class="skill reveal"><div class="skill-icon">🗄️</div><h3>SQL</h3><p>Database queries</p></div>
+    <div class="skill reveal delay1"><div class="skill-icon">JS</div><h3>JavaScript</h3><p>Web fundamentals</p></div>
+    <div class="skill reveal delay2"><div class="skill-icon">🐙</div><h3>Git & GitHub</h3><p>Version control</p></div>
+    <div class="skill reveal delay3"><div class="skill-icon">🖥️</div><h3>Tkinter</h3><p>Python GUI apps</p></div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="container">
+  <div class="section-head reveal"><div class="eyebrow">Selected Work</div><h2>Projects</h2>
+    <p>Projects built while developing Python, data and software skills.</p></div>
+  <div class="projects">
+    <article class="card project reveal">
+      <div class="project-top"><span class="project-number">01 · PYTHON GUI</span><span>💰</span></div>
+      <h3>Expense Tracker Pro</h3><p>GUI-based expense management app with add, search, delete, summaries, charts and PDF reporting.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Tkinter</span><span class="tag">CSV</span><span class="tag">Matplotlib</span></div>
+      <a class="project-link" href="https://github.com/satyadav824-cloud" target="_blank">View on GitHub →</a>
+    </article>
+    <article class="card project reveal delay1">
+      <div class="project-top"><span class="project-number">02 · API PROJECT</span><span>🌦️</span></div>
+      <h3>Weather Dashboard</h3><p>Python weather application using an API to display temperature, humidity, wind speed, sunrise and sunset.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Requests</span><span class="tag">API</span><span class="tag">OpenWeather</span></div>
+      <a class="project-link" href="https://github.com/satyadav824-cloud" target="_blank">View on GitHub →</a>
+    </article>
+    <article class="card project reveal">
+      <div class="project-top"><span class="project-number">03 · DATA PROJECT</span><span>🩺</span></div>
+      <h3>Diabetes Data Analysis</h3><p>Exploration and filtering of patient data using BMI and other dataset attributes with Python notebooks.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Jupyter</span></div>
+      <a class="project-link" href="https://github.com/satyadav824-cloud" target="_blank">View on GitHub →</a>
+    </article>
+    <article class="card project reveal delay1">
+      <div class="project-top"><span class="project-number">04 · PYTHON</span><span>🧮</span></div>
+      <h3>BMI Calculator</h3><p>Python application that accepts height and weight, calculates BMI and displays a category.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">CLI</span><span class="tag">Logic</span></div>
+      <a class="project-link" href="https://github.com/satyadav824-cloud" target="_blank">View on GitHub →</a>
+    </article>
+  </div>
+</div></section>
+
+<section id="experience"><div class="container">
+  <div class="section-head reveal"><div class="eyebrow">Experience</div><h2>Internship</h2></div>
+  <div class="timeline">
+    <div class="card timeline-card reveal">
+      <h3>Oasis Infobyte · Python Development Internship</h3><div class="date">Project-based internship</div>
+      <p>Developed Python projects including BMI Calculator, Password Generator, Weather Dashboard and Expense Tracker GUI. Worked with APIs, Tkinter, CSV, Git and GitHub.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="education"><div class="container">
+  <div class="section-head reveal"><div class="eyebrow">Education</div><h2>Academic Journey</h2></div>
+  <div class="card timeline-card reveal" style="max-width:850px;margin:auto">
+    <h3>Bachelor of Technology — Artificial Intelligence & Machine Learning</h3>
+    
+    <p>Building foundations in Artificial Intelligence, Machine Learning, Python, Data Analysis and core Computer Science concepts.</p>
+  </div>
+</div></section>
+
+<section id="contact"><div class="container contact">
+  <div class="section-head reveal"><div class="eyebrow">Get In Touch</div><h2>Let's Connect</h2>
+    <p>Interested in internships, AI/ML projects and collaborative technology work.</p></div>
+  <div class="card reveal">
+    <p>Email: <strong>satyadav824@gmail.com</strong></p>
+    <div class="contact-links">
+      <a class="btn primary" href="mailto:satyadav824@gmail.com">📧 Email Me</a>
+      <a class="btn" href="https://github.com/satyadav824-cloud" target="_blank">🐙 GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/satyendra-yadav-50b604273/" target="_blank">💼 LinkedIn</a>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="container">© <span id="year"></span> Satyendra Yadav · Built with HTML, CSS & JavaScript</div></footer>
+
+<script>
+function toggleMenu(){document.getElementById("navLinks").classList.toggle("active")}
+document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>document.getElementById("navLinks").classList.remove("active")));
+document.getElementById("year").textContent=new Date().getFullYear();
+
+/* Typing animation */
+const words=["Python Developer","Machine Learning Enthusiast","Data Analyst"];
+let wi=0,ci=0,deleting=false;
+function type(){
+  const el=document.getElementById("typed"),word=words[wi];
+  el.textContent=word.slice(0,ci);
+  if(!deleting && ci<word.length){ci++;setTimeout(type,90)}
+  else if(!deleting){deleting=true;setTimeout(type,1300)}
+  else if(ci>0){ci--;setTimeout(type,45)}
+  else{deleting=false;wi=(wi+1)%words.length;setTimeout(type,300)}
+}
+type();
+
+/* Scroll reveal */
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")})
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+/* Animated particles */
+const particleBox=document.getElementById("particles");
+for(let i=0;i<45;i++){
+  const p=document.createElement("span");
+  p.className="particle";
+  p.style.left=Math.random()*100+"%";
+  p.style.animationDuration=(7+Math.random()*12)+"s";
+  p.style.animationDelay=(-Math.random()*15)+"s";
+  p.style.opacity=(.15+Math.random()*.5);
+  p.style.transform=`scale(${.5+Math.random()*1.5})`;
+  particleBox.appendChild(p);
+}
+</script>
+</body>
+</html>
